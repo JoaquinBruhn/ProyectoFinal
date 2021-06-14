@@ -1,0 +1,37 @@
+$link-top_boton: large;
+$article-title-font-size: 24;
+$article-paragraph-font-size:18;
+
+.footer__links__fuente{
+    font-size: $link-top_boton;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+    a{
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.nav__links__fuente{
+    font-size: $link-top_boton;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.article__title__fuente{
+    display: flex;
+    justify-content: center;
+    font-size: $article-title-font-size;
+    font-family:'Times New Roman', Times, serif;
+    font-weight:bolder ;
+}
+.article__paragraph__fuente{
+    font-size: $article-paragraph-font-size;
+    font-family: 'KoHo', sans-serif;
+    font-weight: 500;
+}
+.div__titleHits__fuente{
+    font-family:'Times New Roman', Times, serif;
+    font-weight:bolder;
+    font-size: 40;
+}

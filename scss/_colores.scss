@@ -1,0 +1,28 @@
+$body-color: rgb(255, 162, 128);
+$nav-color:  rgb(245, 245, 245);
+
+.body__background__color{
+    background-color: $body-color;
+}
+
+.nav__background__color{
+    background-color: $nav-color;
+}
+
+$footer-redes-colores: (
+    youtube: rgb(187, 78, 59),
+    facebook: rgb(95, 95, 207),
+    instagram: rgb(224, 181, 60)
+    );
+
+@each $red, $color in $footer-redes-colores {
+        .div__btn-background-red__#{$red}{
+            background-color: $color;
+        }
+}
+.article__title__espacio{
+    background-color: bisque;
+}
+.div__imgBackground__color{
+    background-color: white;
+}

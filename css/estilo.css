@@ -1,0 +1,70 @@
+.body__background__color {
+  background-color: #ffa280; }
+
+.nav__background__color {
+  background-color: whitesmoke; }
+
+.div__btn-background-red__youtube {
+  background-color: #bb4e3b; }
+
+.div__btn-background-red__facebook {
+  background-color: #5f5fcf; }
+
+.div__btn-background-red__instagram {
+  background-color: #e0b53c; }
+
+.article__title__espacio {
+  background-color: bisque; }
+
+.div__imgBackground__color {
+  background-color: white; }
+
+.footer__links__fuente {
+  font-size: large;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold; }
+  .footer__links__fuente a {
+    text-decoration: none;
+    color: black; }
+
+.nav__links__fuente {
+  font-size: large;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold; }
+
+.article__title__fuente {
+  display: flex;
+  justify-content: center;
+  font-size: 24;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder; }
+
+.article__paragraph__fuente {
+  font-size: 18;
+  font-family: 'KoHo', sans-serif;
+  font-weight: 500; }
+
+.div__titleHits__fuente {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  font-size: 40; }
+
+.article__title__espacio {
+  padding: 15px;
+  margin: 15px; }
+
+.div__imgTemporada__espacio {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  margin: 20px; }
+
+.div__title__espacio {
+  display: flex;
+  justify-content: center;
+  padding: 28px; }
+
+.article__title__border {
+  border: solid;
+  border-radius: 1px;
+  border-color: black; }
