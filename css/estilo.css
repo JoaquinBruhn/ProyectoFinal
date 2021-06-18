@@ -1,5 +1,5 @@
 .body__background__color {
-  background-color: #fcb9a1; }
+  background-color: #7c6f6a; }
 
 .nav__background__color {
   background-color: whitesmoke; }
@@ -69,6 +69,10 @@
   margin-right: 0px;
   padding-left: 0px;
   padding-right: 0px; }
+
+.video_position {
+  display: flex;
+  justify-content: center; }
 
 .article__title__border {
   border: solid;
