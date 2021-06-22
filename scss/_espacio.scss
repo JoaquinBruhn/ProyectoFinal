@@ -1,29 +1,51 @@
 
 
 
-
+/* Titulos */
 .article__title__espacio{
     padding:15px;
     margin: 15px;
 }
 
+.div__title__espacio{
+    display: flex;
+    justify-content: center;
+    padding: 28px;
+}
+
+/* Texto */
+.p__figureText__espacio{
+    display: flex;
+    align-self: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    size: 90%;
+    @media only screen and (max-width: 768px){
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+/* Figures */
 .div__imgTemporada__espacio{
     display: flex;
     justify-content: center;
     padding: 30px;
     margin: 20px;
 }
-.div__title__espacio{
-    display: flex;
-    justify-content: center;
-    padding: 28px;
+.div__alignItems__espacio{
+    display:flex;
+    align-items: center;
 }
+
+/* Video */
 .container_inicio_0margin{
     margin-left: 0px;
     margin-right: 0px;
     padding-left: 0px;
     padding-right: 0px;
 }
+/* Video (no funca) */
 .video_position{
     display: flex;
     justify-content: center;

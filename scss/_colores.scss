@@ -1,14 +1,27 @@
 $body-color: rgb(124, 111, 106);
 $nav-color:  rgb(245, 245, 245);
 
+/* Body */
 .body__background__color{
     background-color: $body-color;
 }
 
+/* Nav*/
 .nav__background__color{
     background-color: $nav-color;
 }
 
+/* Titulos */
+.article__title__espacio{
+    background-color: bisque;
+}
+
+/* figures */
+.div__figCaptionBackground__color{
+    background-color: white;
+}
+
+/* Footer*/
 $footer-redes-colores: (
     youtube: rgb(187, 78, 59),
     facebook: rgb(95, 95, 207),
@@ -19,10 +32,4 @@ $footer-redes-colores: (
         .div__btn-background-red__#{$red}{
             background-color: $color;
         }
-}
-.article__title__espacio{
-    background-color: bisque;
-}
-.div__imgBackground__color{
-    background-color: white;
 }

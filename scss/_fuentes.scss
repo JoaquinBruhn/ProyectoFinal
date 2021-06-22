@@ -1,7 +1,39 @@
 $link-top_boton: large;
-$article-title-font-size: 24;
-$article-paragraph-font-size:18;
+$article-paragraph-font-size:22px;
 
+
+/* Nav */
+.nav__links__fuente{
+    font-size: $link-top_boton;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+ /* Titulos */
+.article__title__fuente{
+    display: flex;
+    justify-content: center;
+    font-family:'Times New Roman', Times, serif;
+    font-weight:bolder ;
+}
+
+/* Titulo en "Hits" */
+.div__titleHits__fuente{
+    font-family:'Times New Roman', Times, serif;
+    font-weight:bolder;
+}
+
+/* Texto */
+.article__paragraph__fuente{
+    font-size: $article-paragraph-font-size;
+    font-family: 'KoHo', sans-serif;
+    font-weight: 800;
+    @media only screen and (max-width: 768px){
+        font-size: 16px;
+    }
+}
+
+/* Footer */
 .footer__links__fuente{
     font-size: $link-top_boton;
     font-family:'Times New Roman', Times, serif;
@@ -10,28 +42,4 @@ $article-paragraph-font-size:18;
         text-decoration: none;
         color: black;
     }
-}
-
-.nav__links__fuente{
-    font-size: $link-top_boton;
-    font-family:'Times New Roman', Times, serif;
-    font-weight: bold;
-}
-
-.article__title__fuente{
-    display: flex;
-    justify-content: center;
-    font-size: $article-title-font-size;
-    font-family:'Times New Roman', Times, serif;
-    font-weight:bolder ;
-}
-.article__paragraph__fuente{
-    font-size: $article-paragraph-font-size;
-    font-family: 'KoHo', sans-serif;
-    font-weight: 500;
-}
-.div__titleHits__fuente{
-    font-family:'Times New Roman', Times, serif;
-    font-weight:bolder;
-    font-size: 40;
 }
