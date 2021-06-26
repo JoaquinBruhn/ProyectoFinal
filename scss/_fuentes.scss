@@ -28,6 +28,7 @@ $article-paragraph-font-size:22px;
     font-size: $article-paragraph-font-size;
     font-family: 'KoHo', sans-serif;
     font-weight: 800;
+    color: white;
     @media only screen and (max-width: 768px){
         font-size: 18px;
         font-weight:bold;
@@ -41,6 +42,6 @@ $article-paragraph-font-size:22px;
     font-weight: bold;
     a{
         text-decoration: none;
-        color: black;
+        color: rgb(255, 255, 255);
     }
 }

@@ -1,6 +1,6 @@
 /* Body */
 .body__background__color {
-  background-color: #7c6f6a; }
+  background-color: black; }
 
 /* Nav*/
 .nav__background__color {
@@ -8,7 +8,7 @@
 
 /* Titulos */
 .article__title__espacio {
-  background-color: bisque; }
+  background-color: white; }
 
 /* figures */
 .div__figCaptionBackground__color {
@@ -46,7 +46,8 @@
 .article__paragraph__fuente {
   font-size: 22px;
   font-family: 'KoHo', sans-serif;
-  font-weight: 800; }
+  font-weight: 800;
+  color: white; }
   @media only screen and (max-width: 768px) {
     .article__paragraph__fuente {
       font-size: 18px;
@@ -59,7 +60,7 @@
   font-weight: bold; }
   .footer__links__fuente a {
     text-decoration: none;
-    color: black; }
+    color: white; }
 
 /* Titulos */
 .article__title__espacio {
