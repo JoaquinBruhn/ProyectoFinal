@@ -37,10 +37,23 @@
   font-family: 'Times New Roman', Times, serif;
   font-weight: bolder; }
 
+.paralax__stroke__fuente {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bolder;
+  color: black;
+  font-size: 68px;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 2px; }
+  @media only screen and (max-width: 768px) {
+    .paralax__stroke__fuente {
+      font-size: 36px;
+      -webkit-text-stroke-width: 1px; } }
+
 /* Titulo en "Hits" */
 .div__titleHits__fuente {
   font-family: 'Times New Roman', Times, serif;
-  font-weight: bolder; }
+  font-weight: bolder;
+  color: white; }
 
 /* Texto */
 .article__paragraph__fuente {
@@ -73,6 +86,16 @@
   justify-content: center;
   padding: 28px; }
 
+/* Paralax */
+.paralax__title__espacio {
+  display: flex;
+  justify-content: center;
+  padding: 28px;
+  margin-top: 70px; }
+  @media only screen and (max-width: 768px) {
+    .paralax__title__espacio {
+      margin-top: 50px; } }
+
 /* Texto */
 .p__figureText__espacio {
   display: flex;
@@ -96,12 +119,10 @@
   display: flex;
   align-items: center; }
 
-/* Video */
-.container_inicio_0margin {
+/* containers */
+.container__0margin__espacio {
   margin-left: 0px;
-  margin-right: 0px;
-  padding-left: 0px;
-  padding-right: 0px; }
+  margin-right: 0px; }
 
 /* Video (no funca) */
 .video_position {
@@ -114,3 +135,12 @@
   border-bottom: solid;
   border-radius: 1px;
   border-color: black; }
+
+.header__paralax__animacion {
+  background-image: url(../assets/images/muestraHits/IMG_8578.jpg);
+  height: 600px;
+  background-attachment: fixed;
+  background-position: center; }
+  @media only screen and (max-width: 768px) {
+    .header__paralax__animacion {
+      height: 400px; } }

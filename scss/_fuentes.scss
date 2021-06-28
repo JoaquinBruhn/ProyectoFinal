@@ -17,10 +17,25 @@ $article-paragraph-font-size:22px;
     font-weight:bolder ;
 }
 
+.paralax__stroke__fuente{
+    font-family:'Times New Roman', Times, serif;
+    font-weight:bolder;
+    color: black;
+    font-size: 68px;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 2px;
+    @media only screen and (max-width: 768px)
+    {
+        font-size: 36px;
+        -webkit-text-stroke-width: 1px;
+    }
+}
+
 /* Titulo en "Hits" */
 .div__titleHits__fuente{
     font-family:'Times New Roman', Times, serif;
     font-weight:bolder;
+    color: white;
 }
 
 /* Texto */
