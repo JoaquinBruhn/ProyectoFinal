@@ -122,7 +122,8 @@
 /* containers */
 .container__0margin__espacio {
   margin-left: 0px;
-  margin-right: 0px; }
+  margin-right: 0px;
+  padding: 0px; }
 
 /* Video (no funca) */
 .video_position {
