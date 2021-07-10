@@ -1,10 +1,9 @@
-$link-top_boton: large;
 $article-paragraph-font-size:22px;
 
 
 /* Nav */
 .nav__links__fuente{
-    font-size: $link-top_boton;
+    font-size: large;
     font-family:'Times New Roman', Times, serif;
     font-weight: bold;
 }
@@ -52,11 +51,19 @@ $article-paragraph-font-size:22px;
 
 /* Footer */
 .footer__links__fuente{
-    font-size: $link-top_boton;
+    font-size: 24px;
     font-family:'Times New Roman', Times, serif;
     font-weight: bold;
     a{
         text-decoration: none;
+        color: rgb(255, 255, 255);
+    }
+}
+.footer__redes__fuente{
+    font-size: 36px;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+    i{
         color: rgb(255, 255, 255);
     }
 }
