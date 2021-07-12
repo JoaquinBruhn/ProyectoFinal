@@ -56,11 +56,13 @@
     margin-right: 0px;
     padding: 0px;
 }
+
 /* Video (no funca) */
 .video_position{
     display: flex;
     justify-content: center;
 }
+
 /* Footer */
 .footer__margin__espacio{
     margin-top: 45px;
@@ -70,4 +72,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Formulario */
+.footer__TextAreaLargo__espacio{
+    width: 300px;
+}
+
+.footer__MarginMobile__espacio{
+    @media only screen and (max-width: 768px){
+        margin-top: 45px;
+    }
 }
