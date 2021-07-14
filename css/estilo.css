@@ -132,11 +132,6 @@
   margin-right: 0px;
   padding: 0px; }
 
-/* Video (no funca) */
-.video_position {
-  display: flex;
-  justify-content: center; }
-
 /* Footer */
 .footer__margin__espacio {
   margin-top: 45px;
