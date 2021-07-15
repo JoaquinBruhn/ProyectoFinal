@@ -10,4 +10,14 @@
 }
 
 /* Imagenes Accesorios */
+.img__graytransform__animaciones{
+    filter: grayscale(0.5) brightness(0.5);
+    transition: 0.5s linear;
+    @media only screen and (max-width: 768px){
+        filter: grayscale(0) brightness(1);
+    }
+}
 
+.img__graytransform__animaciones:hover{
+    filter: grayscale(0) brightness(1);
+}
