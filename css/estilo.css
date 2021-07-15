@@ -157,6 +157,7 @@
   border-radius: 1px;
   border-color: black; }
 
+/* Paralax */
 .header__paralax__animacion {
   background-image: url(../assets/images/muestraHits/IMG_8578.jpg);
   height: 600px;
@@ -165,3 +166,5 @@
   @media only screen and (max-width: 768px) {
     .header__paralax__animacion {
       height: 400px; } }
+
+/* Imagenes Accesorios */
