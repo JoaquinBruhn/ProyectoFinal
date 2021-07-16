@@ -8,7 +8,7 @@
   background-color: whitesmoke; }
 
 /* Titulos */
-.article__title__espacio {
+.article__title__color {
   background-color: white; }
 
 /* figures */
@@ -41,14 +41,13 @@
 .paralax__stroke__fuente {
   font-family: 'Times New Roman', Times, serif;
   font-weight: bolder;
-  color: black;
+  color: white;
   font-size: 68px;
-  -webkit-text-fill-color: white;
-  -webkit-text-stroke-width: 2px; }
+  letter-spacing: 2.5rem; }
   @media only screen and (max-width: 768px) {
     .paralax__stroke__fuente {
       font-size: 36px;
-      -webkit-text-stroke-width: 1px; } }
+      letter-spacing: 0.5rem; } }
 
 /* Titulo en "Hits" */
 .div__titleHits__fuente {
@@ -84,6 +83,10 @@
     color: white; }
 
 /* Titulos */
+.article__titleHits__espacio {
+  padding: 15px;
+  margin-bottom: 15px; }
+
 .article__title__espacio {
   padding: 15px;
   margin-top: 15px;
@@ -99,7 +102,7 @@
   display: flex;
   justify-content: center;
   padding: 28px;
-  margin-top: 70px; }
+  margin-top: 180px; }
   @media only screen and (max-width: 768px) {
     .paralax__title__espacio {
       margin-top: 50px; } }
@@ -129,8 +132,11 @@
 
 /* sliders */
 .slider__tamaño__espacio {
-  width: 60%;
+  width: 50%;
   height: auto; }
+  @media only screen and (max-width: 768px) {
+    .slider__tamaño__espacio {
+      width: 100%; } }
 
 /* containers */
 .container__0margin__espacio {
@@ -175,10 +181,10 @@
 
 /* Paralax */
 .header__paralax__animacion {
-  background-image: url(../assets/images/muestraHits/IMG_8578.jpg);
-  height: 600px;
+  background-image: url(../assets/images/principio/paralax/portada.jpg);
+  height: 500px;
   background-attachment: fixed;
-  background-position: center; }
+  background-position: 0 59 0 0; }
   @media only screen and (max-width: 768px) {
     .header__paralax__animacion {
       height: 400px; } }

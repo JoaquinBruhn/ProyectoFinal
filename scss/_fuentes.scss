@@ -19,14 +19,13 @@ $article-paragraph-font-size:22px;
 .paralax__stroke__fuente{
     font-family:'Times New Roman', Times, serif;
     font-weight:bolder;
-    color: black;
+    color: white;
     font-size: 68px;
-    -webkit-text-fill-color: white;
-    -webkit-text-stroke-width: 2px;
+    letter-spacing: 2.5rem;
     @media only screen and (max-width: 768px)
     {
         font-size: 36px;
-        -webkit-text-stroke-width: 1px;
+        letter-spacing: 0.5rem;
     }
 }
 

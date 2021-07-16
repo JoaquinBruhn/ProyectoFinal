@@ -1,11 +1,12 @@
 /* Paralax */
 .header__paralax__animacion{
-    background-image: url(../assets/images/muestraHits/IMG_8578.jpg);
-    height: 600px;
+    background-image: url(../assets/images/principio/paralax/portada.jpg);
+    height: 500px;
     background-attachment: fixed;
-    background-position: center;
+    background-position: 0 59 0 0;
     @media only screen and (max-width: 768px){
         height: 400px;
+
     }
 }
 
