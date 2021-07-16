@@ -164,6 +164,9 @@
   justify-content: center;
   align-items: center; }
 
+.footer__horizontal__espacio {
+  width: 33%; }
+
 /* Formulario */
 .footer__TextAreaLargo__espacio {
   width: 300px; }
