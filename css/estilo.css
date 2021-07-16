@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Body */
 .body__background__color {
   background-color: black; }
@@ -125,6 +126,11 @@
 .div__alignItems__espacio {
   display: flex;
   align-items: center; }
+
+/* sliders */
+.slider__tamaño__espacio {
+  width: 60%;
+  height: auto; }
 
 /* containers */
 .container__0margin__espacio {
