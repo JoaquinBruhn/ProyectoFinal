@@ -22,6 +22,10 @@ $article-paragraph-font-size:22px;
     color: white;
     font-size: 68px;
     letter-spacing: 2.5rem;
+    @media only screen and (min-width: 769px) and (max-width:1024px){
+        font-size: 48px;
+        letter-spacing: 1.5rem;
+    }
     @media only screen and (max-width: 768px)
     {
         font-size: 36px;

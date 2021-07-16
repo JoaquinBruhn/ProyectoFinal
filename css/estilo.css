@@ -44,6 +44,10 @@
   color: white;
   font-size: 68px;
   letter-spacing: 2.5rem; }
+  @media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .paralax__stroke__fuente {
+      font-size: 48px;
+      letter-spacing: 1.5rem; } }
   @media only screen and (max-width: 768px) {
     .paralax__stroke__fuente {
       font-size: 36px;
@@ -109,7 +113,7 @@
   margin-top: 180px; }
   @media only screen and (max-width: 768px) {
     .paralax__title__espacio {
-      margin-top: 50px; } }
+      margin-top: 120px; } }
 
 /* Texto */
 .p__figureText__espacio {
