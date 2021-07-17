@@ -43,7 +43,7 @@
   font-weight: bolder;
   color: white;
   font-size: 68px;
-  letter-spacing: 2.5rem; }
+  letter-spacing: 2.25rem; }
   @media only screen and (min-width: 769px) and (max-width: 1024px) {
     .paralax__stroke__fuente {
       font-size: 48px;
