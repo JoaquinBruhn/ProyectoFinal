@@ -3,9 +3,12 @@
     background-image: url(../assets/images/principio/paralax/portada.jpg);
     height: 500px;
     background-attachment: fixed;
+    @media only screen and (min-width: 769px) and (max-width:1024px){
+        background-image: url(../assets/images/principio/paralax/portada2.jpg);
+    }
     @media only screen and (max-width: 768px){
+        background-image: url(../assets/images/principio/paralax/portada3.jpg);
         height: 400px;
-
     }
 }
 
