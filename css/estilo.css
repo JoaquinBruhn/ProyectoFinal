@@ -38,6 +38,7 @@
   font-family: 'Times New Roman', Times, serif;
   font-weight: bolder; }
 
+/* Paralax */
 .paralax__stroke__fuente {
   font-family: 'Times New Roman', Times, serif;
   font-weight: bolder;
@@ -81,14 +82,18 @@
   font-weight: bold; }
   .footer__links__fuente a {
     text-decoration: none;
-    color: white; }
+    color: inherit; }
 
 .footer__redes__fuente {
   font-size: 36px;
   font-family: 'Times New Roman', Times, serif;
-  font-weight: bold; }
+  font-weight: bold;
+  transition: 0.4s; }
   .footer__redes__fuente i {
     color: white; }
+
+.footer__redes__fuente:hover {
+  font-size: 48px; }
 
 /* Titulos */
 .article__titleHits__espacio {

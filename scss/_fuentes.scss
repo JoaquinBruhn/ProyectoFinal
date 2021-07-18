@@ -15,7 +15,7 @@ $article-paragraph-font-size:22px;
     font-family:'Times New Roman', Times, serif;
     font-weight:bolder ;
 }
-
+/* Paralax */
 .paralax__stroke__fuente{
     font-family:'Times New Roman', Times, serif;
     font-weight:bolder;
@@ -64,14 +64,19 @@ $article-paragraph-font-size:22px;
     font-weight: bold;
     a{
         text-decoration: none;
-        color: rgb(255, 255, 255);
+        color: inherit;
     }
 }
+
 .footer__redes__fuente{
     font-size: 36px;
     font-family:'Times New Roman', Times, serif;
     font-weight: bold;
+    transition: 0.4s;
     i{
         color: rgb(255, 255, 255);
     }
+}
+.footer__redes__fuente:hover{
+    font-size: 48px;
 }
