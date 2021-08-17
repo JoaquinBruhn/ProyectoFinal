@@ -1,3 +1,5 @@
+const inventario = []
+
 class ropa{
     constructor(tipo,talle,color,patron,precio){
         this.tipo = tipo;
@@ -6,37 +8,32 @@ class ropa{
         this.patron = patron;
         this.precio = precio;
     }
-    caracteristicas(){
-        return ("tipo de prenda: "+this.tipo+" \n"+"talle: "+this.talle+" \n"+"color/es: "+this.color+" \n"+"patron: "+this.patron+" \n"+"precio: "+this.precio)
+    visualizar(){
+        console.log(this);
     }
-
 }
 
-const ropa1 = new ropa("pantalon", "S", "negro","ninguno", "$900");
-const ropa2 = new ropa("camisa", "M", "blanca y celeste", "rallada", "$800");
-const ropa3 = new ropa("zapatos","40","negro","ninguno","$1400");
-const ropa4 = new ropa("remera","S","naranja","ninguno","$550");
-const ropa5 = new ropa("buzo","L","marron","dibujo","$1200");
+inventario.push(new ropa("pantalon", "S", "negro","ninguno", "$900"))
+inventario.push(new ropa("camisa", "M", "blanca y celeste", "rallada", "$800"))
+inventario.push(new ropa("zapatos","40","negro","ninguno","$1400"))
+inventario.push(new ropa("remera","S","naranja","ninguno","$550"))
+inventario.push(new ropa("buzo","L","marron","dibujo","$1200"))
 
-let continuar
-alert("bienvenido")
-let prenda = prompt("por favor elija cual de nuestras mejores prendas quiere ver.(pantalon,camisa,zapatos,remera o buzo)")
-prenda = prenda.toLowerCase()
-if(prenda=="pantalon"){
-    alert(ropa1.caracteristicas());
+
+function agregarAlCarrito(){
+    let carrito = []
+    for (let index = 0; index < inventario.length; index++) {
+        let agregarItem=prompt("desea agregar "+inventario[index].tipo+" al carrito? si|no")
+        if (agregarItem=="si"){
+            carrito.push(inventario[index])
+        }
+    }
+    return carrito
 }
-else if(prenda=="camisa"){
-    alert(ropa2.caracteristicas());
-}
-else if(prenda=="zapatos"){
-    alert(ropa3.caracteristicas());
-}
-else if(prenda=="remera"){
-    alert(ropa4.caracteristicas());
-}
-else if(prenda=="buzo"){
-    alert(ropa5.caracteristicas());
-}
-else{
-    alert("error")
+const carritoDeCompras = agregarAlCarrito()
+
+alert("estos son los items de tu carrito")
+
+for (const ropa of carritoDeCompras) {
+    alert("Item: "+ropa.tipo + "\n" +"talle: "+ ropa.talle+ "\n" +"color: "+ropa.color+ "\n" +"patron: "+ropa.patron+ "\n" +"precio: "+ropa.precio)
 }
