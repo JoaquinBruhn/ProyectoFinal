@@ -50,3 +50,10 @@ alert("estos son los items de tu carrito")
 for (const ropa of carritoDeCompras) {
     alert("Item: "+ropa.tipo + "\n" +"talle: "+ ropa.talle+ "\n" +"color: "+ropa.color+ "\n" +"patron: "+ropa.patron+ "\n" +"precio: $"+ropa.precio)
 }
+
+for(const ropa of carritoDeCompras){
+    let item = document.createElement("li");
+    item.innerHTML = "producto: "+ropa.tipo + "\n" +"talle: "+ ropa.talle+ "\n" +"color: "+ropa.color+ "\n" +"patron: "+ropa.patron+ "\n" +"precio: $"+ropa.precio;
+    const idUl = document.getElementById("carrito");
+    idUl.appendChild(item)
+}
