@@ -188,6 +188,10 @@
   .footer__MarginMobile__espacio {
     margin-top: 45px; } }
 
+.figure__size__espacio {
+  height: 70%;
+  width: 70%; }
+
 /* Titulos */
 .article__title__border {
   border-top: solid;
