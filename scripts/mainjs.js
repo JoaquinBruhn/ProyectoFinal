@@ -1,3 +1,5 @@
+AOS.init();
+
 //Creacion del array con todos los items que podes elegir
 const inventario = []
 // constructor para maquetar los items del inventario
