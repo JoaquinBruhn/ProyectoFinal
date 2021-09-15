@@ -1,76 +1,138 @@
 AOS.init();
 
-mostrarAccesorios(accesorios)
+mostrarProductos(accesorios, 'accesorios');
+mostrarProductos(sets, 'sets');
+mostrarProductos(extras, 'extras');
 
-function mostrarAccesorios (accesorios){
-    accesorios.forEach(accesorio => {
-        $("#productosAccesorios").append(`  
-        <div class="col-md-4">
-            <h4 class="article__paragraph__fuente">${accesorio.nombre}</h4>
+
+
+function mostrarProductos(productos, string) {
+    for (let i = 0; i < productos.length; i++) {
+        productos[i].id = i
+    }
+    
+    productos.forEach((producto) => {
+        $(`#productos-${string}`).append(`
+            <div class="col-md-4">
+            <h4 class="article__paragraph__fuente">${producto.nombre}</h4>
             <figure class="figure">
-                <a href="#"><img src="${accesorio.imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
-                <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${accesorio.precio} .</figcaption>
+                <a href="#"><img src="${producto.imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz">
+                </a>
+                <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${producto.precio} .
+                </figcaption>
             </figure>
-            <button type="button" class="btn btn-outline-light"><h3 class="footer__links__fuente text-decoration-none m-0">Agregar al carrito</h3></button>
+            <button type="button" id="${string}${producto.id}" class="btn btn-outline-light"><h3 class="footer__links__fuente text-decoration-none m-0">Agregar al carrito</h3></button>
         </div>
-        `)
-        $(`.btn`).click(()=>{
-            carrito.push(accesorio)
+        `);
+        $(`#${string}${producto.id}`).click(function () {
+            carrito.push(producto);
             console.log(carrito);
-            mostrarCarrito(accesorio)
-        }) 
-    })
-};
-
-
-    // for (let i=0;i<sets.length;i++){
-    //     $("#productosSets").append(`  
-    //     <div class="col-md-4">
-    //         <h4 class="article__paragraph__fuente">${sets[i].nombre}</h4>
-    //         <figure class="figure">
-    //             <a href="#"><img src="${sets[i].imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
-    //             <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${sets[i].precio} .</figcaption>
-    //         </figure>
-    //         <button type="button" class="btn btn-outline-light" id="${i}"><h3 class="footer__links__fuente text-decoration-none m-0">Agregar al carrito</h3></button>
-    //     </div>
-    //     `)
-    //     $(`#${i}`).click(()=>{
-    //         console.log("hola");
-    //         carrito.push(sets[i])
-    //         mostrarCarrito()
-    //     }) 
-    // }
-    // for (let i=0;i<extras.length;i++){
-    //     $("#productosExtras").append(`  
-    //     <div class="col-md-4">
-    //         <h4 class="article__paragraph__fuente">${extras[i].nombre}</h4>
-    //         <figure class="figure">
-    //             <a href="#"><img src="${extras[i].imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
-    //             <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${extras[i].precio} .</figcaption>
-    //         </figure>
-    //         <button type="button" class="btn btn-outline-light" id="${i}"><h3 class="footer__links__fuente text-decoration-none m-0">Agregar al carrito</h3></button>
-    //     </div>
-    //     `)
-    //     $(`#${i}`).click(()=>{
-    //         console.log("hola");
-    //         carrito.push(extras[i])
-    //         mostrarCarrito()
-    //     }) 
-    // }
-
-
-function mostrarCarrito (accesorio){
-        $("#carrito").append(`  
-        <div class="col-md-4">
-            <h4 class="article__paragraph__fuente">${accesorio.nombre}</h4>
-            <figure class="figure">
-                <a href="#"><img src="${accesorio.imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
-                <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${accesorio.precio} .</figcaption>
-            </figure>
-        </div>
-        `)
-    console.log(accesorio);
+            mostrarCarrito(producto, string);
+        });
+        
+    });
 }
+
+function mostrarCarrito(producto, string) {
+    $('#carrito').append(`
+        <div class="col-md-4" id="removeCarrito${string}${producto.id}">
+            <h4 class="article__paragraph__fuente">${producto.nombre}</h4>
+            <figure class="figure">
+                <a href="#"><img src="${producto.imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
+                <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${producto.precio} .</figcaption>
+            </figure>
+            <button type="button" class="btn btn-outline-light" id="carrito${string}${producto.id}"><h3 class="footer__links__fuente text-decoration-none m-0">Eliminar del carrito</h3></button>
+        </div>
+        `);
+        $(`#carrito${string}${producto.id}`).click(function () {
+            carrito.splice(carrito.indexOf(producto.id));
+            console.log(carrito);
+            $(`#removeCarrito${string}${producto.id}`).remove()
+        });
+}
+
+
+
+
+
+
+
+
+
+
+// AOS.init();
+
+// mostrarAccesorios(accesorios)
+
+// function mostrarAccesorios (accesorios){
+//     accesorios.forEach(accesorio => {
+//         $("#productosAccesorios").append(`  
+//         <div class="col-md-4">
+//             <h4 class="article__paragraph__fuente">${accesorio.nombre}</h4>
+//             <figure class="figure">
+//                 <a href="#"><img src="${accesorio.imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
+//                 <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${accesorio.precio} .</figcaption>
+//             </figure>
+//             <button type="button" class="btn btn-outline-light"><h3 class="footer__links__fuente text-decoration-none m-0">Agregar al carrito</h3></button>
+//         </div>
+//         `)
+//         $(`.btn`).click(()=>{
+//             carrito.push(accesorio)
+//             console.log(carrito);
+//             mostrarCarrito(accesorio)
+//         }) 
+//     })
+// };
+
+
+//     // for (let i=0;i<sets.length;i++){
+//     //     $("#productosSets").append(`  
+//     //     <div class="col-md-4">
+//     //         <h4 class="article__paragraph__fuente">${sets[i].nombre}</h4>
+//     //         <figure class="figure">
+//     //             <a href="#"><img src="${sets[i].imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
+//     //             <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${sets[i].precio} .</figcaption>
+//     //         </figure>
+//     //         <button type="button" class="btn btn-outline-light" id="${i}"><h3 class="footer__links__fuente text-decoration-none m-0">Agregar al carrito</h3></button>
+//     //     </div>
+//     //     `)
+//     //     $(`#${i}`).click(()=>{
+//     //         console.log("hola");
+//     //         carrito.push(sets[i])
+//     //         mostrarCarrito()
+//     //     }) 
+//     // }
+//     // for (let i=0;i<extras.length;i++){
+//     //     $("#productosExtras").append(`  
+//     //     <div class="col-md-4">
+//     //         <h4 class="article__paragraph__fuente">${extras[i].nombre}</h4>
+//     //         <figure class="figure">
+//     //             <a href="#"><img src="${extras[i].imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
+//     //             <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${extras[i].precio} .</figcaption>
+//     //         </figure>
+//     //         <button type="button" class="btn btn-outline-light" id="${i}"><h3 class="footer__links__fuente text-decoration-none m-0">Agregar al carrito</h3></button>
+//     //     </div>
+//     //     `)
+//     //     $(`#${i}`).click(()=>{
+//     //         console.log("hola");
+//     //         carrito.push(extras[i])
+//     //         mostrarCarrito()
+//     //     }) 
+//     // }
+
+
+// function mostrarCarrito (accesorio){
+//         $("#carrito").append(`  
+//         <div class="col-md-4">
+//             <h4 class="article__paragraph__fuente">${accesorio.nombre}</h4>
+//             <figure class="figure">
+//                 <a href="#"><img src="${accesorio.imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
+//                 <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${accesorio.precio} .</figcaption>
+//             </figure>
+//         </div>
+//         `)
+//     console.log(accesorio);
+// }
 
 
 
