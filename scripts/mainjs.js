@@ -1,17 +1,44 @@
 AOS.init();
 console.log("hello");
 
+
 mostrarInventario()
 
 function mostrarInventario (){
     let i = 0
     for (i;i<accesorios.length;i++){
-        $("productosAccesorios").append(`  
-        <div class="col-md-4 div__alignItems__espacio">
+        $("#productosAccesorios").append(`  
+        <div class="col-md-4">
             <h4 class="article__paragraph__fuente">${accesorios[i].nombre}</h4>
             <figure class="figure">
-                <a href="#"><img src="${accesorios[i].imgSrc}" class="figure-img img-fluid rounded" alt="Collar Audaz"></a>
+                <a href="#"><img src="${accesorios[i].imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
                 <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${accesorios[i].precio} .</figcaption>
+            </figure>
+            <button type="button" class="btn btn-outline-light" id="${i}"><h3 class="footer__links__fuente text-decoration-none m-0">Agregar al carrito</h3></button>
+        </div>
+        `)
+    }
+    let y = 0
+    for (y;y<sets.length;i++ && y++){
+        $("#productosSets").append(`  
+        <div class="col-md-4">
+            <h4 class="article__paragraph__fuente">${sets[y].nombre}</h4>
+            <figure class="figure">
+                <a href="#"><img src="${sets[y].imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
+                <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${sets[y].precio} .</figcaption>
+            </figure>
+            <button type="button" class="btn btn-outline-light" id="${i}"><h3 class="footer__links__fuente text-decoration-none m-0">Agregar al carrito</h3></button>
+        </div>
+        `)
+    }
+    let x = 0
+    for (x;x<extras.length;i++ && x++){
+        $("#productosExtras").append(`  
+        <div class="col-md-4">
+            <h4 class="article__paragraph__fuente">${extras[x].nombre}</h4>
+            <figure class="figure">
+                <a href="#"><img src="${extras[x].imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
+                <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${extras[x].precio} .</figcaption>
             </figure>
             <button type="button" class="btn btn-outline-light" id="${i}"><h3 class="footer__links__fuente text-decoration-none m-0">Agregar al carrito</h3></button>
         </div>
