@@ -1,54 +1,80 @@
 AOS.init();
-console.log("hello");
 
+mostrarAccesorios(accesorios)
 
-mostrarInventario()
-
-function mostrarInventario (){
-    let i = 0
-    for (i;i<accesorios.length;i++){
+function mostrarAccesorios (accesorios){
+    accesorios.forEach(accesorio => {
         $("#productosAccesorios").append(`  
         <div class="col-md-4">
-            <h4 class="article__paragraph__fuente">${accesorios[i].nombre}</h4>
+            <h4 class="article__paragraph__fuente">${accesorio.nombre}</h4>
             <figure class="figure">
-                <a href="#"><img src="${accesorios[i].imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
-                <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${accesorios[i].precio} .</figcaption>
+                <a href="#"><img src="${accesorio.imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
+                <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${accesorio.precio} .</figcaption>
             </figure>
-            <button type="button" class="btn btn-outline-light" id="${i}"><h3 class="footer__links__fuente text-decoration-none m-0">Agregar al carrito</h3></button>
+            <button type="button" class="btn btn-outline-light"><h3 class="footer__links__fuente text-decoration-none m-0">Agregar al carrito</h3></button>
         </div>
         `)
-    }
-    let y = 0
-    for (y;y<sets.length;i++ && y++){
-        $("#productosSets").append(`  
-        <div class="col-md-4">
-            <h4 class="article__paragraph__fuente">${sets[y].nombre}</h4>
-            <figure class="figure">
-                <a href="#"><img src="${sets[y].imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
-                <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${sets[y].precio} .</figcaption>
-            </figure>
-            <button type="button" class="btn btn-outline-light" id="${i}"><h3 class="footer__links__fuente text-decoration-none m-0">Agregar al carrito</h3></button>
-        </div>
-        `)
-    }
-    let x = 0
-    for (x;x<extras.length;i++ && x++){
-        $("#productosExtras").append(`  
-        <div class="col-md-4">
-            <h4 class="article__paragraph__fuente">${extras[x].nombre}</h4>
-            <figure class="figure">
-                <a href="#"><img src="${extras[x].imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
-                <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${extras[x].precio} .</figcaption>
-            </figure>
-            <button type="button" class="btn btn-outline-light" id="${i}"><h3 class="footer__links__fuente text-decoration-none m-0">Agregar al carrito</h3></button>
-        </div>
-        `)
-    }
+        $(`.btn`).click(()=>{
+            console.log(accesorio);
+            carrito.push(accesorio)
+            mostrarCarrito()
+        }) 
+    })
+};
 
+
+    // for (let i=0;i<sets.length;i++){
+    //     $("#productosSets").append(`  
+    //     <div class="col-md-4">
+    //         <h4 class="article__paragraph__fuente">${sets[i].nombre}</h4>
+    //         <figure class="figure">
+    //             <a href="#"><img src="${sets[i].imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
+    //             <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${sets[i].precio} .</figcaption>
+    //         </figure>
+    //         <button type="button" class="btn btn-outline-light" id="${i}"><h3 class="footer__links__fuente text-decoration-none m-0">Agregar al carrito</h3></button>
+    //     </div>
+    //     `)
+    //     $(`#${i}`).click(()=>{
+    //         console.log("hola");
+    //         carrito.push(sets[i])
+    //         mostrarCarrito()
+    //     }) 
+    // }
+    // for (let i=0;i<extras.length;i++){
+    //     $("#productosExtras").append(`  
+    //     <div class="col-md-4">
+    //         <h4 class="article__paragraph__fuente">${extras[i].nombre}</h4>
+    //         <figure class="figure">
+    //             <a href="#"><img src="${extras[i].imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
+    //             <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${extras[i].precio} .</figcaption>
+    //         </figure>
+    //         <button type="button" class="btn btn-outline-light" id="${i}"><h3 class="footer__links__fuente text-decoration-none m-0">Agregar al carrito</h3></button>
+    //     </div>
+    //     `)
+    //     $(`#${i}`).click(()=>{
+    //         console.log("hola");
+    //         carrito.push(extras[i])
+    //         mostrarCarrito()
+    //     }) 
+    // }
+
+
+function mostrarCarrito (){
+    $("carrito").empty()
+    for (let i=0;i<carrito.length;i++){
+        $("#carrito").append(`  
+        <div class="col-md-4">
+            <h4 class="article__paragraph__fuente">${carrito[i].nombre}</h4>
+            <figure class="figure">
+                <a href="#"><img src="${carrito[i].imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
+                <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${carrito[i].precio} .</figcaption>
+            </figure>
+        </div>
+        `)
+        console.log(i);
+    }
+    console.log(carrito);
 }
-
-
-
 
 
 

@@ -2,6 +2,7 @@
 const accesorios = []
 const sets = []
 const extras = []
+const carrito = []
 
 const inventario = []
 // constructor para maquetar los items
@@ -57,4 +58,3 @@ inventario.push(accesorios)
 inventario.push(sets)
 inventario.push(extras)
 
-accesorios[0].nombre
