@@ -15,9 +15,9 @@ function mostrarAccesorios (accesorios){
         </div>
         `)
         $(`.btn`).click(()=>{
-            console.log(accesorio);
             carrito.push(accesorio)
-            mostrarCarrito()
+            console.log(carrito);
+            mostrarCarrito(accesorio)
         }) 
     })
 };
@@ -59,21 +59,17 @@ function mostrarAccesorios (accesorios){
     // }
 
 
-function mostrarCarrito (){
-    $("carrito").empty()
-    for (let i=0;i<carrito.length;i++){
+function mostrarCarrito (accesorio){
         $("#carrito").append(`  
         <div class="col-md-4">
-            <h4 class="article__paragraph__fuente">${carrito[i].nombre}</h4>
+            <h4 class="article__paragraph__fuente">${accesorio.nombre}</h4>
             <figure class="figure">
-                <a href="#"><img src="${carrito[i].imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
-                <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${carrito[i].precio} .</figcaption>
+                <a href="#"><img src="${accesorio.imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
+                <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${accesorio.precio} .</figcaption>
             </figure>
         </div>
         `)
-        console.log(i);
-    }
-    console.log(carrito);
+    console.log(accesorio);
 }
 
 
