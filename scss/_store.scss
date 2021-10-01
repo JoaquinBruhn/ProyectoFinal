@@ -1,0 +1,44 @@
+input[type=checkbox]{
+    display: none;
+}
+.label-position{
+    margin: 0px 5px;
+}
+.store__dropdown__espacio{
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    right: 0%;
+    margin: 1vw;
+    width: 20%;
+    height: 10%;
+    background-color: white;
+    border-radius: 10px;
+    z-index: 1;
+    transition: 1s;
+}
+.store__dropdown__espacio:hover{
+    height: 80%;
+    .item-list{
+        height: 80%;
+    }    
+}
+#popup-store:checked ~ .store__dropdown__espacio{
+    display: flex;
+}
+.item-list{
+    width: 90%;
+    height: 0%;
+    overflow: auto;
+    transition: 1s;
+}
+.precio{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+
+}
