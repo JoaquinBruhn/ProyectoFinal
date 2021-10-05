@@ -2,6 +2,7 @@
 AOS.init();
 
 //se le ejecuta la funcion para armar el HTML a los 3 arrays, y el string va a servir para que el ID de los objetos sea unico
+onLoadCantidadCarrito()
 mostrarProductos(accesorios, 'accesorios');
 mostrarProductos(sets, 'sets');
 mostrarProductos(extras, 'extras');
@@ -32,10 +33,35 @@ function mostrarProductos(productos, string) {
         $(`#${producto.id}`).click(function () {
             carrito.push(producto);
             console.log(carrito);
+            cantidadCarrito();
             mostrarCarrito(producto);
         });
         
     });
+}
+//fincion para mantener que no se limpie la cantidad de items en el carrito en refresh
+function onLoadCantidadCarrito(){
+    let itemsTotal = localStorage.getItem(`cantidadCarrito`);
+
+    if(itemsTotal) {
+        document.querySelector(`.fa-shopping-cart span`).textContent = itemsTotal;
+    }
+}
+
+function cantidadCarrito() {
+    let itemsTotal = localStorage.getItem(`cantidadCarrito`);
+
+    itemsTotal = parseInt(itemsTotal);
+
+    if(itemsTotal) {
+        localStorage.setItem(`cantidadCarrito`, itemsTotal + 1);
+        document.querySelector(`.fa-shopping-cart span`).textContent = itemsTotal + 1;
+    }
+    else{
+        localStorage.setItem(`cantidadCarrito`, 1);
+        document.querySelector(`.fa-shopping-cart span`).textContent = 1;
+    }
+
 }
 
 //Funcion para agregar al carrito
