@@ -3,6 +3,7 @@ AOS.init();
 
 //se le ejecuta la funcion para armar el HTML a los 3 arrays, y el string va a servir para que el ID de los objetos sea unico
 onLoadCantidadCarrito()
+mostrarCarrito()
 mostrarProductos(accesorios, 'accesorios');
 mostrarProductos(sets, 'sets');
 mostrarProductos(extras, 'extras');
@@ -32,11 +33,13 @@ function mostrarProductos(productos, string) {
         //Se le agrega el evento de onClick a el boton
         $(`#${producto.id}`).click(function () {
             cantidadCarrito(producto);
+            contarTotal(producto)
+            mostrarCarrito()
         });
         
     });
 }
-//funcion para mantener que no se limpie la cantidad de items en el carrito en refresh
+//funcion para que no se limpie la cantidad de items en el carrito en refresh
 function onLoadCantidadCarrito(){
     //busca la cantidad de local storage
     let itemsTotal = localStorage.getItem(`cantidadCarrito`);
@@ -46,7 +49,7 @@ function onLoadCantidadCarrito(){
     }
 }
 
-//Funcion para agregar cantidad de items al carrito
+//Funcion para agregar cantidad de items al boton del carrito
 function cantidadCarrito(producto) {
     //le da el valor a "itemsTotal" que este guardado en el storage
     let itemsTotal = localStorage.getItem(`cantidadCarrito`);
@@ -63,33 +66,74 @@ function cantidadCarrito(producto) {
         document.querySelector(`.fa-shopping-cart span`).textContent = 1;
     }
     //le pedimos que tambien ejecute la funcion para agregar a la lista
-    mostrarCarrito(producto)
+    registratCantidad(producto)
 }
 
-//Funcion para agregar al carrito
-function mostrarCarrito(producto) {
-    let itemsCarrito = localStorage.getItem(`productsInCart`)
+//Funcion para agregar al productos al localStorage
+function registratCantidad(producto) {
+    //consigue el item  en "productosEnCarrito" en forma string y lo parsea
+    let itemsCarrito = localStorage.getItem(`productosEnCarrito`)
     itemsCarrito = JSON.parse(itemsCarrito);
-
+    //se fija de que "itemsCarrto" tenga un valor de antemano
     if(itemsCarrito != null){
+        //chequea si el item apretado es distinto al que estaba registrado y si lo es lo registra
         if(itemsCarrito[producto.nombre] == undefined){
             itemsCarrito = {
                 ...itemsCarrito, [producto.nombre]:producto
             }
         }
+        // le aumenta la cantidad en 1 al producto que se eligio
         itemsCarrito[producto.nombre].cantidad +=1;
     }
     else{
+        //si "poductsOnCart" no existe le setea la cantidad en 1 al item seleccionado y clrea "itemsCarrito"
         producto.cantidad = 1;
         itemsCarrito = {
             [producto.nombre]: producto
         }
     }
-    localStorage.setItem(`productsInCart`, JSON.stringify(itemsCarrito));
+    //transforma a "itemsCarrito" en un string antes de meterlo en el storage
+    localStorage.setItem(`productosEnCarrito`, JSON.stringify(itemsCarrito));
 }
 
+function contarTotal(producto){
+    let costoTotal = localStorage.getItem(`precioTotal`);
 
+    if(costoTotal != null){
+        costoTotal = parseInt(costoTotal);
+        localStorage.setItem(`precioTotal`, costoTotal + producto.precio);
+    }
+    else{
+        localStorage.setItem(`precioTotal`, producto.precio)
+    }
+}
 
+function mostrarCarrito(){
+    let itemsCarrito = localStorage.getItem(`productosEnCarrito`)
+    let precioTotal = localStorage.getItem(`precioTotal`)
+    
+    if(itemsCarrito && precioTotal != null){
+        itemsCarrito = JSON.parse(itemsCarrito)
+
+        itemsCarrito = Object.values(itemsCarrito)
+
+        $(`.item-list`).empty();
+
+        itemsCarrito.forEach((producto) => {
+            $(`.item-list`).append(`
+            <div class="items-in-cart">
+                <h5>${producto.nombre}</h5>
+                <div class="items-cantidad">
+                    <button class="btn btn-outline-dark"><</button>
+                    <h5>X${producto.cantidad}</h5>
+                    <button class="btn btn-outline-dark">></button>
+                </div>
+            </div>`
+            )
+        })
+        $(`.precio > h5`).text(`Precio Total: $${precioTotal}`)
+    }
+}
 // //tamplate del item agregado
 // $('#carrito').append(`
 //     <div class="col-md-4" id="removeCarrito${producto.id}">

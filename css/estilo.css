@@ -258,6 +258,19 @@ input[type=checkbox] {
   overflow: auto;
   transition: 1s; }
 
+.items-in-cart {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px; }
+
+.items-cantidad {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.items-cantidad > button {
+  margin: 0px 5px; }
+
 .precio {
   display: flex;
   justify-content: center;
