@@ -12,12 +12,15 @@ input[type=checkbox]{
     flex-direction: column;
     right: 0%;
     margin: 1vw;
-    width: 30%;
-    height: 10%;
+    width: 35%;
+    height: 15%;
     background-color: white;
     border-radius: 10px;
     z-index: 1;
     transition: 1s;
+    @media only screen and (max-width: 768px){
+        width: 90%;
+    }
 }
 .store__dropdown__espacio:hover{
     height: 80%;
@@ -37,15 +40,30 @@ input[type=checkbox]{
 .items-in-cart{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-top: 5px;
+}
+.producto-nombre{
+    width: 130px;
 }
 .items-cantidad{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.producto-cantidad{
+    align-self: center;
+    text-align: center;
+    margin: 0;
+    width: 25px;
+}
 .items-cantidad > button{
     margin: 0px 5px;
+}
+.producto-precio{
+    text-align: end;
+    margin: 0;
+    width: 70px;
 }
 .precio{
     display: flex;
@@ -53,5 +71,12 @@ input[type=checkbox]{
     flex-direction: column;
     align-items: center;
     width: 90%;
+}
 
+.precio h4, .precio h5, .precio h6{
+    align-self: center;
+    margin: 0;
+}
+.precio button{
+ margin-top:5px;
 }

@@ -4,6 +4,7 @@ AOS.init();
 //se le ejecuta la funcion para armar el HTML a los 3 arrays, y el string va a servir para que el ID de los objetos sea unico
 onLoadCantidadCarrito()
 mostrarCarrito()
+botonesCarrito()
 mostrarProductos(accesorios, 'accesorios');
 mostrarProductos(sets, 'sets');
 mostrarProductos(extras, 'extras');
@@ -39,6 +40,27 @@ function mostrarProductos(productos, string) {
         
     });
 }
+//Cuando se ejecuta se borra el HTML correspondiente y se limpian los items del Local storage
+function limpiarTodo(){
+    $(`.item-list`).empty();
+    $(`.precio > h5`).text(`Precio Total: $0`)
+    $('.fa-shopping-cart span').text(``)
+    localStorage.removeItem(`productosEnCarrito`)
+    localStorage.removeItem(`precioTotal`);
+    localStorage.removeItem(`cantidadCarrito`);
+}
+//funcion para agregarle eventos de limpieza a "limpiar carrito" y "Comprar ahora"
+function botonesCarrito(){
+    //cuando se le hace click a "limpiar carrito" 
+    $(`.precio > button > h6`).click( function(){
+        limpiarTodo()
+    });
+    //Lo mismo para "Comprar ahora" porque la idea no era que funcione para empezar
+    $(`.precio > button > h4`).click( function(){
+        limpiarTodo()
+    });
+}
+
 //funcion para que no se limpie la cantidad de items en el carrito en refresh
 function onLoadCantidadCarrito(){
     //busca la cantidad de local storage
@@ -95,65 +117,47 @@ function registratCantidad(producto) {
     //transforma a "itemsCarrito" en un string antes de meterlo en el storage
     localStorage.setItem(`productosEnCarrito`, JSON.stringify(itemsCarrito));
 }
-
+//Funcion para crear el item de "precioTotal" que va a tener el valor de la suma de los productos elegidos y sumarle el precio de uno nuevo si el itam ya existe
 function contarTotal(producto){
+    //le asigna a "costoTotal" el valor del item "precioTotal" si es que existe
     let costoTotal = localStorage.getItem(`precioTotal`);
-
+    //Condicional, "si precioTotal" existia el valor de "costoTotal" es distinto de null
     if(costoTotal != null){
+        //se pasa el valor a numero para que no se contatene
         costoTotal = parseInt(costoTotal);
+        //se le agrega el valor del precio del producto nuevo y se lo reescribe de vuelta como "precioTotal"
         localStorage.setItem(`precioTotal`, costoTotal + producto.precio);
     }
     else{
+        //si "precioTotal" no existia antes el valor es null y en vez se crea el item "precioTotal" con el valor de ese primer producto
         localStorage.setItem(`precioTotal`, producto.precio)
     }
 }
-
+//Funcion que agrega los items comprados al carrito de compras y actualiza el precio total
 function mostrarCarrito(){
+    // busca la lista de objetos y el precio total del storage y los pasa a variable
     let itemsCarrito = localStorage.getItem(`productosEnCarrito`)
     let precioTotal = localStorage.getItem(`precioTotal`)
     
+    //condicional para chequear que los valores existan (sirve para poder ejecutar la funcion cuando carga la pag, si no hay valores de antemano no hace nada)
     if(itemsCarrito && precioTotal != null){
         itemsCarrito = JSON.parse(itemsCarrito)
-
+        //se buscan los values solamente para que los key no molesten el uso del forEach
         itemsCarrito = Object.values(itemsCarrito)
 
+        //vacia el HTML del store para eliminar la lista vieja
         $(`.item-list`).empty();
-
+        //crea el template producto por producto
         itemsCarrito.forEach((producto) => {
             $(`.item-list`).append(`
             <div class="items-in-cart">
-                <h5>${producto.nombre}</h5>
-                <div class="items-cantidad">
-                    <button class="btn btn-outline-dark"><</button>
-                    <h5>X${producto.cantidad}</h5>
-                    <button class="btn btn-outline-dark">></button>
-                </div>
+                <h5 class="producto-nombre">${producto.nombre}</h5>
+                    <h5 class="producto-cantidad">X${producto.cantidad}</h5>
+                <h5 class="producto-precio">$${producto.precio * producto.cantidad}</h5>
             </div>`
             )
         })
+        //setea el HTML del elemento donde va el precio total
         $(`.precio > h5`).text(`Precio Total: $${precioTotal}`)
     }
 }
-// //tamplate del item agregado
-// $('#carrito').append(`
-//     <div class="col-md-4" id="removeCarrito${producto.id}">
-//         <h4 class="article__paragraph__fuente">${producto.nombre}</h4>
-//         <figure class="figure">
-//             <a href="#"><img src="${producto.imgSrc}" class="figure-img img-fluid rounded w:50% h:50%" alt="Collar Audaz"></a>
-//             <figcaption class="figure-caption text-right figure__CaptionBackground__color figure__figCaption__fuentes">$ ${producto.precio} .</figcaption>
-//         </figure>
-//         <button type="button" class="btn btn-outline-light" id="carrito${producto.id}"><h3 class="footer__links__fuente text-decoration-none m-0">Eliminar del carrito</h3></button>
-//     </div>
-//     `)
-//     //Dandole un efecto de fadeIn
-//     $(`#removeCarrito${producto.id}`).hide()
-//     $(`#removeCarrito${producto.id}`).fadeIn(500)
-//     //Evento para sacar el item del carrito
-//     $(`#carrito${producto.id}`).click(function () {
-//         carrito.splice(carrito.indexOf(producto),1);
-//         console.log(carrito);
-//         //Efecto fadeOut que elimina el item del HTML despues del fade
-//         $(`#removeCarrito${producto.id}`).fadeOut(500,()=>{
-//             $(`#removeCarrito${producto.id}`).remove()
-//         })
-//     });
